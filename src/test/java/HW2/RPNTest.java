@@ -11,9 +11,9 @@ class RPNTest {
         //given
         RPN equation = new RPN("3 4 +");
         //when
-        equation.evaluate();
+        String result=equation.evaluate();
         //then
-        assertEquals("The total is 7.0", equation.toString());
+        assertEquals("The total is 7.0", result);
     }
 
 
@@ -22,20 +22,9 @@ class RPNTest {
         //given
         RPN equation = new RPN("3 4 * 2 +");
         //when
-        equation.evaluate();
+        String result=equation.evaluate();
         //then
-        assertEquals("The total is 14.0", equation.toString());
-    }
-
-
-    @Test
-    void testExtraInfo() {
-        //given
-        RPN equation = new RPN("3 4 + 6");
-        //when
-        equation.evaluate();
-        //then
-        assertEquals("Extra junk ignored",equation.toString());
+        assertEquals("The total is 14.0", result);
     }
 
     @Test
@@ -43,8 +32,8 @@ class RPNTest {
         //given
         RPN equation = new RPN("3 4 + +");
         //when
-        equation.evaluate();
+        String result=equation.evaluate();
         //then
-        assertEquals("Please check your input. Something went wrong.",equation.toString());
+        assertEquals("Please check your input. Something went wrong.",result);
     }
 }
