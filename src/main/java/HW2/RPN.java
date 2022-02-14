@@ -15,7 +15,7 @@ public class RPN {
     }
 
     String evaluate() {
-         String output = null;
+         String output = "Please check your input. Something went wrong.";
 
         try
         {
@@ -54,9 +54,9 @@ public class RPN {
                             stack.push(Double.parseDouble(s));
                         } catch (Exception e)
                         {
-                            output="Please check your input. Something went wrong.";
                             error = true;
                             i = item.length;
+                            break;
                         }
                         break;
                 }
@@ -64,16 +64,14 @@ public class RPN {
             if (!error)
             {
                 double finalTotal = stack.pop();
-                if (!stack.empty())
-                    output = "Please check your input. Something went wrong";
-                else
+                if(stack.empty())
                 {
                     output = "The total is " + finalTotal;
                 }
             }
-        } catch (Exception e)
+        } catch (Exception ignored)
         {
-            output = "Please check your input. Something went wrong.";
+
         }
         return output;
     }

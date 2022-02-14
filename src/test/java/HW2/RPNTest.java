@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class RPNTest {
 
     @Test
-    void testBasicEquation() {
+    void basicEquation() {
         //given
         RPN equation = new RPN("3 4 +");
         //when
@@ -18,7 +18,7 @@ class RPNTest {
 
 
     @Test
-    void testComplexEquation() {
+    void complexEquation() {
         //given
         RPN equation = new RPN("3 4 * 2 +");
         //when
@@ -28,7 +28,7 @@ class RPNTest {
     }
 
     @Test
-    void testError(){
+    void error(){
         //given
         RPN equation = new RPN("3 4 + +");
         //when
