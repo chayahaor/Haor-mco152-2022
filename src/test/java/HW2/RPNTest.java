@@ -34,6 +34,6 @@ class RPNTest {
         //when
         String result=equation.evaluate();
         //then
-        assertEquals("Please check your input. Something went wrong.",result);
+        assertEquals(RPN.ERROR,result);
     }
 }

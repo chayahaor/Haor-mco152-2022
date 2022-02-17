@@ -8,6 +8,7 @@ import java.util.*;
  * https://en.wikipedia.org/wiki/Reverse_Polish_notation
  */
 public class RPN {
+    public static final String ERROR = "Please check your input. Something went wrong.";
     private final String expressionInput;
 
     public RPN(String input) {
@@ -15,7 +16,7 @@ public class RPN {
     }
 
     String evaluate() {
-         String output = "Please check your input. Something went wrong.";
+         String output = ERROR;
 
         try
         {
@@ -69,9 +70,9 @@ public class RPN {
                     output = "The total is " + finalTotal;
                 }
             }
-        } catch (Exception ignored)
+        } catch (Exception e)
         {
-
+            e.printStackTrace();
         }
         return output;
     }
