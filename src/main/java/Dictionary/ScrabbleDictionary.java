@@ -9,7 +9,7 @@ public class ScrabbleDictionary {
     private HashMap<String, String> words = new HashMap();
 
     public ScrabbleDictionary() {
-        File file = new File("C:\\Users\\chaya\\IdeaProjects\\Haor-mco152-2022\\src\\main\\dictionary.txt");
+        File file = new File("dictionary.txt");
         try
         {
             Scanner scanner = new Scanner(file);
