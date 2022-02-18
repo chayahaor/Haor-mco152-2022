@@ -7,7 +7,7 @@ import java.util.Random;
 public class ScrabbleGame {
     private List<String> playedWords = new ArrayList<>();
     private List<Character> tiles = new ArrayList<>();
-    Random generator = new Random();
+    private Random generator = new Random();
 
     //give the player 7 random tiles
     public ScrabbleGame() {
@@ -35,7 +35,7 @@ public class ScrabbleGame {
             playedWords.add(capitalWord);
             for (int i = 0; i < word.length(); i++)
             {
-                char letter= word.charAt(i);
+                char letter = word.charAt(i);
                 tiles.remove(tiles.indexOf(letter));
                 addTiles(word.length());
             }
@@ -63,8 +63,8 @@ public class ScrabbleGame {
         int number;
         for (int i = 0; i < length; i++)
         {
-            number = generator.nextInt(26);
-            number += 65;
+            number = generator.nextInt(26)+65; //generates a number up to 26
+            // then adds 65 to convert it to the ascii value of a capital letter
             tiles.add((char) number);
         }
     }
