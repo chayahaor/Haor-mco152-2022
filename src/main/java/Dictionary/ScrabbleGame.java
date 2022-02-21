@@ -45,11 +45,15 @@ public class ScrabbleGame {
     }
 
     private boolean checkIfInTiles(String word) {
+        ArrayList<Character> charTiles = new ArrayList<>(tiles); 
         for (int i = 0; i < word.length(); i++)
         {
-            if (!tiles.contains(word.charAt(i)))
+            if (!charTiles.contains(word.charAt(i)))
             {
                 return false;
+            }
+            else{
+                charTiles.remove(charTiles.indexOf(word.charAt(i)));
             }
         }
         return true;
