@@ -18,8 +18,8 @@ class ScrabbleGameTest {
         Mockito.doReturn('H', 'E', 'L', 'L', 'O', 'O', 'O').
                 when(letterPool).getRandomLetter();
         ScrabbleGame game = new ScrabbleGame(dictionary, letterPool);
-        //when
         String word = "HELLO";
+        //when
         //then
         assertTrue(game.playWord(word));
         Mockito.verify(letterPool, Mockito.times(7+5)).getRandomLetter();
@@ -36,8 +36,8 @@ class ScrabbleGameTest {
         Mockito.doReturn('H', 'E', 'L', 'L', 'O', 'O', 'O').
                 when(letterPool).getRandomLetter();
         ScrabbleGame game = new ScrabbleGame(dictionary, letterPool);
-        //when
         String word = "LOGO";
+        //when
         //then
         assertFalse(game.playWord(word));
         assertTrue(game.playedWords.isEmpty());
@@ -52,8 +52,8 @@ class ScrabbleGameTest {
         Mockito.doReturn('H', 'E', 'L', 'L', 'O', 'O', 'O').
                 when(letterPool).getRandomLetter();
         ScrabbleGame game = new ScrabbleGame(dictionary, letterPool);
-        //when
         String word = "HEL";
+        //when
         boolean val = game.playWord(word);
         //then
         Mockito.verify(dictionary).isWord(word);
