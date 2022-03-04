@@ -31,7 +31,6 @@ public class ScrabbleFrame extends JFrame {
 
         addTilesPanel();
 
-
         inputField = new JTextField();
         inputField.setPreferredSize(new Dimension(120, 60));
         verticalPanel.add(inputField);
@@ -67,10 +66,10 @@ public class ScrabbleFrame extends JFrame {
             score++;
             scoreLabel.setText(String.valueOf(score));
             inputField.setText("");
-            output.setText("Word found!");
+            output.setText(scrabbleGame.dictionaryAndTilesFound);
         }
         else{
-            output.setText("Word not found");
+            output.setText(scrabbleGame.dictionaryAndTilesFound);
         }
         for (int i = 0; i < tiles.length; i++)
         {

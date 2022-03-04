@@ -8,6 +8,7 @@ public class ScrabbleGame {
     List<Character> tiles = new ArrayList<>();
     ScrabbleDictionary dictionary;
     LetterPool letterPool;
+    String dictionaryAndTilesFound;
 
     //give the player 7 random tiles
     public ScrabbleGame(ScrabbleDictionary dictionary, LetterPool letterPool) {
@@ -26,20 +27,28 @@ public class ScrabbleGame {
     public boolean playWord(String word) {
         String capitalWord = word.toUpperCase();
 
-        if (checkIfInTiles(word) && dictionary.isWord(capitalWord))
+        if (checkIfInTiles(word))
         {
-            playedWords.add(capitalWord);
-            for (int i = 0; i < word.length(); i++)
+            if (dictionary.isWord(capitalWord))
             {
-                char letter = word.charAt(i);
-                tiles.remove(tiles.indexOf(letter));
+                playedWords.add(capitalWord);
+                for (int i = 0; i < word.length(); i++)
+                {
+                    char letter = word.charAt(i);
+                    tiles.remove(tiles.indexOf(letter));
 
+                }
+                for (int j = 0; j < word.length(); j++)
+                {
+                    tiles.add(letterPool.getRandomLetter());
+                }
+                dictionaryAndTilesFound = "You got it!";
+                return true;
             }
-            for (int j = 0; j < word.length(); j++)
-            {
-                tiles.add(letterPool.getRandomLetter());
-            }
-            return true;
+            dictionaryAndTilesFound = "Word not found in dictionary";
+        } else
+        {
+            dictionaryAndTilesFound = "Word not found in your tiles";
         }
         return false;
     }
