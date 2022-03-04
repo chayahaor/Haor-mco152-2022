@@ -14,7 +14,7 @@ public class RPNFrame extends  JFrame{
         setTitle("RPN Calculator");
         setSize(300, 200);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        
         setLayout(new FlowLayout());
         JPanel verticalPanel = new JPanel();
         verticalPanel.setLayout(new BoxLayout(verticalPanel, BoxLayout.Y_AXIS));
