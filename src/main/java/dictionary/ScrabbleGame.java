@@ -1,4 +1,4 @@
-package Dictionary;
+package dictionary;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +9,14 @@ public class ScrabbleGame {
     ScrabbleDictionary dictionary;
     LetterPool letterPool;
     String dictionaryAndTilesFound;
+    static final String win = "You got it";
+    static final String notInDictionary = "Word not found in dictionary";
+    static final String notInTiles = "Word not found in tiles";
+
+
+    public String getDictionaryAndTilesFound() {
+        return dictionaryAndTilesFound;
+    }
 
     //give the player 7 random tiles
     public ScrabbleGame(ScrabbleDictionary dictionary, LetterPool letterPool) {
@@ -42,13 +50,13 @@ public class ScrabbleGame {
                 {
                     tiles.add(letterPool.getRandomLetter());
                 }
-                dictionaryAndTilesFound = "You got it!";
+                dictionaryAndTilesFound = win;
                 return true;
             }
-            dictionaryAndTilesFound = "Word not found in dictionary";
+            dictionaryAndTilesFound = notInDictionary;
         } else
         {
-            dictionaryAndTilesFound = "Word not found in your tiles";
+            dictionaryAndTilesFound = notInTiles;
         }
         return false;
     }
