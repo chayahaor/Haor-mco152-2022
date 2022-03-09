@@ -1,4 +1,4 @@
-package Dictionary;
+package dictionary;
 
 import java.io.File;
 import java.util.HashMap;

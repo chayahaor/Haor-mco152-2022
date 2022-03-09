@@ -1,4 +1,4 @@
-package HW2;
+package RPN;
 
 import org.junit.jupiter.api.Test;
 

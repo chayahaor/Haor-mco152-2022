@@ -1,4 +1,4 @@
-package Dictionary;
+package dictionary;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +8,15 @@ public class ScrabbleGame {
     List<Character> tiles = new ArrayList<>();
     ScrabbleDictionary dictionary;
     LetterPool letterPool;
+    String dictionaryAndTilesFound;
+    static final String WIN = "You got it";
+    static final String NOT_FOUND_IN_DICTIONARY = "Word not found in dictionary";
+    static final String WORD_NOT_FOUND_IN_TILES = "Word not found in tiles";
+
+
+    public String getDictionaryAndTilesFound() {
+        return dictionaryAndTilesFound;
+    }
 
     //give the player 7 random tiles
     public ScrabbleGame(ScrabbleDictionary dictionary, LetterPool letterPool) {
@@ -26,20 +35,28 @@ public class ScrabbleGame {
     public boolean playWord(String word) {
         String capitalWord = word.toUpperCase();
 
-        if (checkIfInTiles(word) && dictionary.isWord(capitalWord))
+        if (checkIfInTiles(word))
         {
-            playedWords.add(capitalWord);
-            for (int i = 0; i < word.length(); i++)
+            if (dictionary.isWord(capitalWord))
             {
-                char letter = word.charAt(i);
-                tiles.remove(tiles.indexOf(letter));
+                playedWords.add(capitalWord);
+                for (int i = 0; i < word.length(); i++)
+                {
+                    char letter = word.charAt(i);
+                    tiles.remove(tiles.indexOf(letter));
 
+                }
+                for (int j = 0; j < word.length(); j++)
+                {
+                    tiles.add(letterPool.getRandomLetter());
+                }
+                dictionaryAndTilesFound = WIN;
+                return true;
             }
-            for (int j = 0; j < word.length(); j++)
-            {
-                tiles.add(letterPool.getRandomLetter());
-            }
-            return true;
+            dictionaryAndTilesFound = NOT_FOUND_IN_DICTIONARY;
+        } else
+        {
+            dictionaryAndTilesFound = WORD_NOT_FOUND_IN_TILES;
         }
         return false;
     }

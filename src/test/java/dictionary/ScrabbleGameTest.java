@@ -1,8 +1,6 @@
-package Dictionary;
+package dictionary;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
-import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -26,6 +24,8 @@ class ScrabbleGameTest {
         assertTrue(game.playedWords.contains(word));
         assertEquals(game.playedWords.size(),1);
         assertEquals(7, game.tiles.size());
+        assertEquals(ScrabbleGame.WIN, game.dictionaryAndTilesFound);
+
     }
 
 
@@ -43,6 +43,8 @@ class ScrabbleGameTest {
         assertTrue(game.playedWords.isEmpty());
         Mockito.verify(letterPool, Mockito.times(7)).getRandomLetter();
         assertEquals(7, game.tiles.size());
+        assertEquals(ScrabbleGame.WORD_NOT_FOUND_IN_TILES, game.dictionaryAndTilesFound);
+
     }
 
 
@@ -59,6 +61,7 @@ class ScrabbleGameTest {
         Mockito.verify(dictionary).isWord(word);
         assertFalse(val);
         assertTrue(game.playedWords.isEmpty());
+        assertEquals(ScrabbleGame.NOT_FOUND_IN_DICTIONARY, game.dictionaryAndTilesFound);
 
     }
 
