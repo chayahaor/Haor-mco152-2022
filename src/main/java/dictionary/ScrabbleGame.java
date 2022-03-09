@@ -9,9 +9,9 @@ public class ScrabbleGame {
     ScrabbleDictionary dictionary;
     LetterPool letterPool;
     String dictionaryAndTilesFound;
-    static final String win = "You got it";
-    static final String notInDictionary = "Word not found in dictionary";
-    static final String notInTiles = "Word not found in tiles";
+    static final String WIN = "You got it";
+    static final String NOT_FOUND_IN_DICTIONARY = "Word not found in dictionary";
+    static final String WORD_NOT_FOUND_IN_TILES = "Word not found in tiles";
 
 
     public String getDictionaryAndTilesFound() {
@@ -50,13 +50,13 @@ public class ScrabbleGame {
                 {
                     tiles.add(letterPool.getRandomLetter());
                 }
-                dictionaryAndTilesFound = win;
+                dictionaryAndTilesFound = WIN;
                 return true;
             }
-            dictionaryAndTilesFound = notInDictionary;
+            dictionaryAndTilesFound = NOT_FOUND_IN_DICTIONARY;
         } else
         {
-            dictionaryAndTilesFound = notInTiles;
+            dictionaryAndTilesFound = WORD_NOT_FOUND_IN_TILES;
         }
         return false;
     }
