@@ -3,16 +3,17 @@ package dictionary;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.util.List;
 
 public class ScrabbleFrame extends JFrame {
-    private int score = 0;
+
     private JLabel scoreLabel;
-    private JLabel[] tiles;
+    private JLabel[] tileLabels;
     private JTextField inputField;
     private JButton submitButton;
     private JLabel output;
     JPanel verticalPanel;
-    private ScrabbleGame scrabbleGame;
+    private final ScrabblePresenter presenter;
 
     public ScrabbleFrame() {
         setTitle("Touro Scrabble");
@@ -21,8 +22,9 @@ public class ScrabbleFrame extends JFrame {
 
         ScrabbleDictionary dictionary = new ScrabbleDictionary();
         LetterPool letterPool = new LetterPool();
-        scrabbleGame=new ScrabbleGame(dictionary, letterPool);
+        ScrabbleGame scrabbleGame=new ScrabbleGame(dictionary, letterPool);
 
+        presenter=new ScrabblePresenter(this, scrabbleGame);
 
         setLayout(new FlowLayout());
         verticalPanel = new JPanel();
@@ -51,35 +53,44 @@ public class ScrabbleFrame extends JFrame {
     private void addTilesPanel() {
         JPanel tilesPanel = new JPanel();
         tilesPanel.setLayout(new FlowLayout());
-        tiles = new JLabel[7];
-        for (int i = 0; i < tiles.length; i++)
+        tileLabels = new JLabel[7];
+        for (int i = 0; i < tileLabels.length; i++)
         {
-            tiles[i] = new JLabel(scrabbleGame.tiles.get(i).toString());
-            tilesPanel.add(tiles[i]);
+            tileLabels[i] = new JLabel();
+            tilesPanel.add(tileLabels[i]);
         }
+        presenter.fillTiles();
         verticalPanel.add(tilesPanel);
     }
 
     public void onSubmitClicked(ActionEvent event) {
         String word= inputField.getText();
-        if(scrabbleGame.playWord(word)){
-            score++;
-            scoreLabel.setText(String.valueOf(score));
-            inputField.setText("");
-            output.setText(scrabbleGame.dictionaryAndTilesFound);
-        }
-        else{
-            output.setText(scrabbleGame.dictionaryAndTilesFound);
-        }
-        for (int i = 0; i < tiles.length; i++)
-        {
-            tiles[i].setText(scrabbleGame.tiles.get(i).toString());
-        }
-
+        presenter.playWord(word);
     }
 
     public static void main(String[] args) {
         JFrame frame = new ScrabbleFrame();
         frame.setVisible(true);
     }
+
+    public void setScore(String score) {
+        scoreLabel.setText(score);
+    }
+
+    public void clearInput(){
+        inputField.setText("");
+    }
+
+    public void setOutput (String outputtingString){
+        output.setText(outputtingString);
+    }
+
+    public void setTiles(List<Character> tiles) {
+        for (int i = 0; i < tiles.size(); i++)
+        {
+            tileLabels[i].setText(tiles.get(i).toString());
+        }
+    }
+
+
 }

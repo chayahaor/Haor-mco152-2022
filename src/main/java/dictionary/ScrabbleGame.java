@@ -81,5 +81,8 @@ public class ScrabbleGame {
         return playedWords;
     }
 
+    public List<Character> getTiles() {
+        return tiles;
+    }
 
 }
