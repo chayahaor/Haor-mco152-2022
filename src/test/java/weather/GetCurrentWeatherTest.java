@@ -10,11 +10,11 @@ class GetCurrentWeatherTest {
 
 
     @Test
-    void getTemperature() throws IOException {
+    void getWeather() throws IOException {
         //given
         GetCurrentWeather getCurrentWeather = new GetCurrentWeather();
         //when
-        double temp = getCurrentWeather.getTemperature();
+        double temp = getCurrentWeather.currentWeather().getMaxTemperature();
         //then
         assertTrue(temp > 0);
     }
@@ -24,7 +24,7 @@ class GetCurrentWeatherTest {
         //given
         GetCurrentWeather getCurrentWeather = new GetCurrentWeather();
         //when
-        double maxTemp = getCurrentWeather.getMinTemp();
+        double maxTemp = getCurrentWeather.currentWeather().getMaxTemperature();
         //then
         assertTrue(maxTemp > 0);
     }
@@ -34,7 +34,7 @@ class GetCurrentWeatherTest {
         //given
         GetCurrentWeather getCurrentWeather = new GetCurrentWeather();
         //when
-        double minTemp = getCurrentWeather.getMinTemp();
+        double minTemp = getCurrentWeather.currentWeather().getMinTemperature();
         //then
         assertTrue(minTemp > 0);
     }
@@ -44,7 +44,7 @@ class GetCurrentWeatherTest {
         //given
         GetCurrentWeather getCurrentWeather = new GetCurrentWeather();
         //when
-        String description = getCurrentWeather.getDescription();
+        String description = getCurrentWeather.currentWeather().getDescription();
         //then
         assertNotNull(description);
     }
@@ -54,7 +54,7 @@ class GetCurrentWeatherTest {
         //given
         GetCurrentWeather getCurrentWeather = new GetCurrentWeather();
         //when
-        String icon = getCurrentWeather.getIcon();
+        String icon = getCurrentWeather.currentWeather().getIcon();
         //then
         assertNotNull(icon);
     }

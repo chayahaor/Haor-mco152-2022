@@ -11,9 +11,9 @@ public class GetCurrentWeather {
 
 
     /**
-     * @return the current temperature in Kelvin
+     * @return the current weather
      */
-    public double getTemperature() throws IOException {
+    public CurrentWeather currentWeather() throws IOException {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://samples.openweathermap.org")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -23,56 +23,7 @@ public class GetCurrentWeather {
                 .execute()
                 .body();
 
-        return currentWeather.getTemperature();
+        return currentWeather;
     }
-
-    public double getMaxTemp() throws IOException {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://samples.openweathermap.org")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        OpenWeatherMapService service = retrofit.create(OpenWeatherMapService.class);
-        CurrentWeather currentWeather = service.getCurrentWeather("10019")
-                .execute()
-                .body();
-        return currentWeather.getMaxTemperature();
-    }
-    public double getMinTemp() throws IOException {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://samples.openweathermap.org")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        OpenWeatherMapService service = retrofit.create(OpenWeatherMapService.class);
-        CurrentWeather currentWeather = service.getCurrentWeather("10019")
-                .execute()
-                .body();
-        return currentWeather.getMinTemperature();
-    }
-
-    public String getDescription() throws IOException {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://samples.openweathermap.org")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        OpenWeatherMapService service = retrofit.create(OpenWeatherMapService.class);
-        CurrentWeather currentWeather = service.getCurrentWeather("10019")
-                .execute()
-                .body();
-        return currentWeather.getDescription();
-    }
-
-    public String getIcon() throws IOException {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://samples.openweathermap.org")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        OpenWeatherMapService service = retrofit.create(OpenWeatherMapService.class);
-        CurrentWeather currentWeather = service.getCurrentWeather("10019")
-                .execute()
-                .body();
-        return currentWeather.getIcon();
-    }
-
-
 
 }
