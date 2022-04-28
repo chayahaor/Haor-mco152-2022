@@ -1,12 +1,13 @@
 package weather.json;
 
-import retrofit2.Call;
+import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
-public interface OpenWeatherMapService {
 
-    @GET ("data/2.5/weather?appid=b6907d289e10d714a6e88b30761fae22")
-    Call<CurrentWeather> getCurrentWeather(@Query("zip") String zipcode);
+public interface OpenWeatherMapService {
+    public static final String APPID ="4163963fcf3d2544257c752ef8c279e9";
+    @GET ("data/2.5/weather?appid="+APPID+"&units=imperial")
+    Observable<CurrentWeather> getCurrentWeather(@Query("q") String zipcode);
 
 }
