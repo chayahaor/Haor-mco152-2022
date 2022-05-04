@@ -12,19 +12,15 @@ class GetCurrentWeatherTest {
     void getWeather() {
         //given
         GetCurrentWeather getCurrentWeather = new GetCurrentWeather();
-        String zip = "10019";
-        Observable<CurrentWeather> observable = getCurrentWeather.getCurrentWeather(zip);
 
         //when
-        double expectedTemp = observable.blockingFirst().getTemperature();
-        double maxTemp = observable.blockingFirst().getMaxTemperature();
-        double minTemp = observable.blockingFirst().getMinTemperature();
+        CurrentWeather currentWeather = getCurrentWeather.getCurrentWeather("10019").blockingFirst();
 
         //then
-        assertTrue(expectedTemp>0);
-        assertTrue(maxTemp>0);
-        assertTrue(minTemp>0);
-
+        //Will fail if the temperature goes below 0
+        assertTrue(currentWeather.getTemperature() > 0);
+        assertTrue(currentWeather.getMaxTemperature() > 0);
+        assertTrue(currentWeather.getMinTemperature() > 0);
 
 
     }
