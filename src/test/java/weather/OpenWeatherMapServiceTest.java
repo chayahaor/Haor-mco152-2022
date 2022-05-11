@@ -1,20 +1,21 @@
 package weather;
 
-import io.reactivex.Observable;
 import org.junit.jupiter.api.Test;
 import weather.json.CurrentWeather;
+import weather.json.OpenWeatherMapService;
+import weather.json.OpenWeatherMapServiceFactory;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class GetCurrentWeatherTest {
+class OpenWeatherMapServiceTest {
 
     @Test
     void getWeather() {
         //given
-        GetCurrentWeather getCurrentWeather = new GetCurrentWeather();
-
+        OpenWeatherMapServiceFactory factory=new OpenWeatherMapServiceFactory();
+        OpenWeatherMapService service = factory.getInstance();
         //when
-        CurrentWeather currentWeather = getCurrentWeather.getCurrentWeather("10019").blockingFirst();
+        CurrentWeather currentWeather = service.getCurrentWeather("10019").blockingFirst();
 
         //then
         //Will fail if the temperature goes below 0

@@ -1,6 +1,8 @@
 package weather;
 
 import weather.json.CurrentWeatherPresenter;
+import weather.json.OpenWeatherMapService;
+import weather.json.OpenWeatherMapServiceFactory;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,8 +12,8 @@ public class CurrentWeatherFrame extends JFrame {
     private final JTextField zipCode;
     private final JButton submitButton;
     private final JLabel weather;
-    GetCurrentWeather getCurrentWeather = new GetCurrentWeather();
-    CurrentWeatherPresenter presenter = new CurrentWeatherPresenter(this, getCurrentWeather);
+    OpenWeatherMapService model;
+    CurrentWeatherPresenter presenter;
 
     public CurrentWeatherFrame() {
 
@@ -33,6 +35,8 @@ public class CurrentWeatherFrame extends JFrame {
         weather = new JLabel();
         add(weather);
 
+        OpenWeatherMapServiceFactory factory = new OpenWeatherMapServiceFactory();
+        presenter = new CurrentWeatherPresenter(this, factory.getInstance());
     }
 
     public void onSubmitClicked(ActionEvent event) {
