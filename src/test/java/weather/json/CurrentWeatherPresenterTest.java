@@ -1,6 +1,7 @@
 package weather.json;
 
 import io.reactivex.Observable;
+import io.reactivex.Single;
 import io.reactivex.plugins.RxJavaPlugins;
 import io.reactivex.schedulers.Schedulers;
 import org.junit.jupiter.api.BeforeAll;
@@ -26,7 +27,7 @@ class CurrentWeatherPresenterTest {
         CurrentWeatherPresenter presenter = new CurrentWeatherPresenter(view, model);
         CurrentWeather currentWeather = mock(CurrentWeather.class);
         doReturn(100.0).when(currentWeather).getTemperature();
-        doReturn(Observable.just(currentWeather))
+        doReturn(Single.just(currentWeather))
                 .when(model).getCurrentWeather("00000");
 
 

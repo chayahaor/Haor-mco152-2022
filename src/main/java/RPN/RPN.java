@@ -1,6 +1,6 @@
 package RPN;
 
-import java.util.*;
+import java.util.Stack;
 
 /**
  * author: Chaya Haor

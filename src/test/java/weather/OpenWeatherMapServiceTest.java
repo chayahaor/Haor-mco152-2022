@@ -12,10 +12,10 @@ class OpenWeatherMapServiceTest {
     @Test
     void getWeather() {
         //given
-        OpenWeatherMapServiceFactory factory=new OpenWeatherMapServiceFactory();
+        OpenWeatherMapServiceFactory factory = new OpenWeatherMapServiceFactory();
         OpenWeatherMapService service = factory.getInstance();
         //when
-        CurrentWeather currentWeather = service.getCurrentWeather("10019").blockingFirst();
+        CurrentWeather currentWeather = service.getCurrentWeather("10019").blockingGet();
 
         //then
         //Will fail if the temperature goes below 0

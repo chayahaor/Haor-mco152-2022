@@ -1,6 +1,5 @@
 package weather.json;
 
-import io.reactivex.Observable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import weather.CurrentWeatherFrame;
@@ -16,8 +15,7 @@ public class CurrentWeatherPresenter {
     }
 
     public void loadWeatherFromZipcode(String zipcode) {
-        Observable<CurrentWeather> observable = model.getCurrentWeather(zipcode);
-        Disposable disposable = observable
+        Disposable disposable = model.getCurrentWeather(zipcode)
                 .subscribeOn(Schedulers.io())
                 .observeOn(Schedulers.newThread())
                 .subscribe(this::onNext, this::onError);
