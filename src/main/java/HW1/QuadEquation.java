@@ -22,7 +22,7 @@ public class QuadEquation {
 
     @Override
     public String toString() {
-        double[] results=findResults();
+        double[] results = findResults();
         return "The possible results are " + results[0] + " and " + results[1];
     }
 }

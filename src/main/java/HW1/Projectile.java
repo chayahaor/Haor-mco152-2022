@@ -1,4 +1,5 @@
 package HW1;
+
 public class Projectile {
 
     private static final double GRAVITY = 9.8;
@@ -16,7 +17,8 @@ public class Projectile {
     }
 
     public double getY(double time) {
-        return velocity * time * Math.sin(Math.toRadians(angleInDegrees)) - .5 * GRAVITY * time * time;
+        return velocity * time
+                * Math.sin(Math.toRadians(angleInDegrees)) - .5 * GRAVITY * time * time;
     }
 
 }

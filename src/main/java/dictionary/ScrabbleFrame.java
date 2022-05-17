@@ -22,9 +22,9 @@ public class ScrabbleFrame extends JFrame {
 
         ScrabbleDictionary dictionary = new ScrabbleDictionary();
         LetterPool letterPool = new LetterPool();
-        ScrabbleGame scrabbleGame=new ScrabbleGame(dictionary, letterPool);
+        ScrabbleGame scrabbleGame = new ScrabbleGame(dictionary, letterPool);
 
-        presenter=new ScrabblePresenter(this, scrabbleGame);
+        presenter = new ScrabblePresenter(this, scrabbleGame);
 
         setLayout(new FlowLayout());
         verticalPanel = new JPanel();
@@ -64,7 +64,7 @@ public class ScrabbleFrame extends JFrame {
     }
 
     public void onSubmitClicked(ActionEvent event) {
-        String word= inputField.getText();
+        String word = inputField.getText();
         presenter.playWord(word);
     }
 
@@ -77,11 +77,11 @@ public class ScrabbleFrame extends JFrame {
         scoreLabel.setText(score);
     }
 
-    public void clearInput(){
+    public void clearInput() {
         inputField.setText("");
     }
 
-    public void setOutput (String outputtingString){
+    public void setOutput(String outputtingString) {
         output.setText(outputtingString);
     }
 

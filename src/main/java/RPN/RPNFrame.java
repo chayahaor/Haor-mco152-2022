@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
-public class RPNFrame extends  JFrame{
+public class RPNFrame extends JFrame {
     private JTextField tfInput;
     private JButton btnSubmit;
     private JLabel lblOutput;

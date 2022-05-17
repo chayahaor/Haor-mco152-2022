@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class OpenWeatherMapServiceFactory {
 
-    public OpenWeatherMapService getInstance(){
+    public OpenWeatherMapService getInstance() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.openweathermap.org")
                 .addConverterFactory(GsonConverterFactory.create())

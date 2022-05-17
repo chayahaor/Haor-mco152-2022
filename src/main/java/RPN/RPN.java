@@ -16,7 +16,7 @@ public class RPN {
     }
 
     String evaluate() {
-         String output = ERROR;
+        String output = ERROR;
 
         try
         {
@@ -65,7 +65,7 @@ public class RPN {
             if (!error)
             {
                 double finalTotal = stack.pop();
-                if(stack.empty())
+                if (stack.empty())
                 {
                     output = "The total is " + finalTotal;
                 }
