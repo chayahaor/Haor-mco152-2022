@@ -19,7 +19,7 @@ class ProjectileTest {
     }
 
     @Test
-    public void getY(){
+    public void getY() {
         //given - set up all variables and conditions
         Projectile p = new Projectile(52, 17);
 
