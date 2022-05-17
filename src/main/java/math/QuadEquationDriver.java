@@ -1,4 +1,4 @@
-package HW1;
+package math;
 
 public class QuadEquationDriver {
     public static void main(String[] args) {

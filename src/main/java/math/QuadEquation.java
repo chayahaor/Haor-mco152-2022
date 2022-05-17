@@ -1,4 +1,4 @@
-package HW1;
+package math;
 
 public class QuadEquation {
     private final int a;
