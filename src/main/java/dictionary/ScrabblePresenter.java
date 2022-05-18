@@ -14,7 +14,7 @@ public class ScrabblePresenter {
         if (model.playWord(word))
         {
             score++;
-            view.setScore(score + "");
+            view.setScore(String.valueOf(score));
             view.setTiles(model.getTiles());
         }
         view.setOutput(model.getDictionaryAndTilesFound());
