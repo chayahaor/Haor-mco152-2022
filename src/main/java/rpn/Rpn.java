@@ -1,22 +1,22 @@
-package RPN;
+package rpn;
 
-import java.util.*;
+import java.util.Stack;
 
 /**
  * author: Chaya Haor
  * implements RPN (reverse polish notation) on the imputed numbers
  * https://en.wikipedia.org/wiki/Reverse_Polish_notation
  */
-public class RPN {
+public class Rpn {
     public static final String ERROR = "Please check your input. Something went wrong.";
     private final String expressionInput;
 
-    public RPN(String input) {
+    public Rpn(String input) {
         expressionInput = input;
     }
 
     String evaluate() {
-         String output = ERROR;
+        String output = ERROR;
 
         try
         {
@@ -65,7 +65,7 @@ public class RPN {
             if (!error)
             {
                 double finalTotal = stack.pop();
-                if(stack.empty())
+                if (stack.empty())
                 {
                     output = "The total is " + finalTotal;
                 }

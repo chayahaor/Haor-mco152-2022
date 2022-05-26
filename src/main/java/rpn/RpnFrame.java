@@ -1,16 +1,16 @@
-package RPN;
+package rpn;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
-public class RPNFrame extends  JFrame{
+public class RpnFrame extends JFrame {
     private JTextField tfInput;
     private JButton btnSubmit;
     private JLabel lblOutput;
-    private RPN rpn;
+    private Rpn rpn;
 
-    public RPNFrame() {
+    public RpnFrame() {
         setTitle("RPN Calculator");
         setSize(300, 200);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -34,12 +34,12 @@ public class RPNFrame extends  JFrame{
     }
 
     private void onSubmitClicked(ActionEvent event) {
-        rpn = new RPN(tfInput.getText());
+        rpn = new Rpn(tfInput.getText());
         lblOutput.setText(rpn.evaluate());
     }
 
     public static void main(String[] args) {
-        RPNFrame frame = new RPNFrame();
+        RpnFrame frame = new RpnFrame();
         frame.setVisible(true);
     }
 }

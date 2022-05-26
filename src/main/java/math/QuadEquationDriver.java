@@ -1,6 +1,4 @@
-package HW1;
-
-import java.util.Arrays;
+package math;
 
 public class QuadEquationDriver {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package HW1;
+package math;
 
 public class QuadEquation {
     private final int a;
@@ -22,7 +22,7 @@ public class QuadEquation {
 
     @Override
     public String toString() {
-        double[] results=findResults();
+        double[] results = findResults();
         return "The possible results are " + results[0] + " and " + results[1];
     }
 }

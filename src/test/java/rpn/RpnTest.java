@@ -1,17 +1,17 @@
-package RPN;
+package rpn;
 
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class RPNTest {
+class RpnTest {
 
     @Test
     void basicEquation() {
         //given
-        RPN equation = new RPN("3 4 +");
+        Rpn equation = new Rpn("3 4 +");
         //when
-        String result=equation.evaluate();
+        String result = equation.evaluate();
         //then
         assertEquals("The total is 7.0", result);
     }
@@ -20,20 +20,20 @@ class RPNTest {
     @Test
     void complexEquation() {
         //given
-        RPN equation = new RPN("3 4 * 2 +");
+        Rpn equation = new Rpn("3 4 * 2 +");
         //when
-        String result=equation.evaluate();
+        String result = equation.evaluate();
         //then
         assertEquals("The total is 14.0", result);
     }
 
     @Test
-    void error(){
+    void error() {
         //given
-        RPN equation = new RPN("3 4 + +");
+        Rpn equation = new Rpn("3 4 + +");
         //when
-        String result=equation.evaluate();
+        String result = equation.evaluate();
         //then
-        assertEquals(RPN.ERROR,result);
+        assertEquals(Rpn.ERROR, result);
     }
 }
