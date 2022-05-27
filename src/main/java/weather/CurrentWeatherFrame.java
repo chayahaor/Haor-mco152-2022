@@ -22,13 +22,13 @@ public class CurrentWeatherFrame extends JFrame {
     public CurrentWeatherFrame(CurrentWeatherPresenter presenter) {
         this.presenter = presenter;
         setTitle("Current Weather");
-        setSize(800, 600);
+        setSize(300, 100);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         setLayout(new FlowLayout());
 
 
-        zipCode = new JTextField();
+        zipCode = new JTextField("21215");
         add(zipCode);
 
         submitButton = new JButton();
