@@ -4,10 +4,10 @@ This is a repository for my classwork for MCO152, Computer Methodology at Touro 
 
 This project uses:
 - Retrofit
-- Gson
-- JUnit
-- Mockito
-- Rx
-- Gradle
+  - Gson
+  - JUnit
+  - Mockito
+  - Rx
+  - Gradle
 
 ![Current Weather](screenshots/CurrentWeather.jpg)
