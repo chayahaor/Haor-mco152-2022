@@ -14,7 +14,9 @@ public class CurrentWeatherPresenter {
     private OpenWeatherMapService model;
 
     @Inject
-    public CurrentWeatherPresenter(Provider<CurrentWeatherFrame> viewProvider, OpenWeatherMapService model) {
+    public CurrentWeatherPresenter(
+            Provider<CurrentWeatherFrame> viewProvider,
+            OpenWeatherMapService model) {
         this.viewProvider = viewProvider;
         this.model = model;
 
