@@ -1,13 +1,16 @@
 package weather;
 
+import weather.dagger.DaggerCurrentWeatherComponent;
 import weather.json.CurrentWeatherPresenter;
 import weather.json.OpenWeatherMapService;
-import weather.json.OpenWeatherMapServiceFactory;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
+@Singleton
 public class CurrentWeatherFrame extends JFrame {
     private final JTextField zipCode;
     private final JButton submitButton;
@@ -15,16 +18,17 @@ public class CurrentWeatherFrame extends JFrame {
     OpenWeatherMapService model;
     CurrentWeatherPresenter presenter;
 
-    public CurrentWeatherFrame() {
-
+    @Inject
+    public CurrentWeatherFrame(CurrentWeatherPresenter presenter) {
+        this.presenter = presenter;
         setTitle("Current Weather");
-        setSize(800, 600);
+        setSize(300, 100);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         setLayout(new FlowLayout());
 
 
-        zipCode = new JTextField();
+        zipCode = new JTextField("21215");
         add(zipCode);
 
         submitButton = new JButton();
@@ -34,9 +38,6 @@ public class CurrentWeatherFrame extends JFrame {
 
         weather = new JLabel();
         add(weather);
-
-        OpenWeatherMapServiceFactory factory = new OpenWeatherMapServiceFactory();
-        presenter = new CurrentWeatherPresenter(this, factory.getInstance());
     }
 
     public void onSubmitClicked(ActionEvent event) {
@@ -45,7 +46,7 @@ public class CurrentWeatherFrame extends JFrame {
 
 
     public static void main(String[] args) {
-        JFrame frame = new CurrentWeatherFrame();
+        CurrentWeatherFrame frame = DaggerCurrentWeatherComponent.create().getCurrentWeatherFrame();
         frame.setVisible(true);
     }
 
