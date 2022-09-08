@@ -9,7 +9,7 @@ class ProjectileTest {
     @Test
     public void getX() {
         //given - set up all variables and conditions
-        Projectile p = new Projectile(52, 17);
+        var p = new Projectile(52, 17);
 
         //when - where the test actually happens
         double x = p.getX(3);
